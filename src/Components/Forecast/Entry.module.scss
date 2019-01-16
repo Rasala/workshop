@@ -1,5 +1,19 @@
 .entry {
+  padding: 10px;
   display: grid;
   grid-template-columns: minmax(200px, 1fr);
-  grid-template-rows: repeat(3, minmax(30px, 1fr));
+  grid-template-rows: minmax(30px, 1fr) 100px repeat(3, minmax(30px, 1fr));
+  background-color: #FCFCFC;
+  color: #444;
+  box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.05);
+
+  &__time {
+    color: #222;
+  }
+
+  &__basic {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -3,7 +3,7 @@ import {bindActionCreators} from "redux";
 import {getWeatherForecast} from "../../Containers/Weather/Weather.action";
 import useRedux from "../../Hooks/redux";
 import Loader from "../Loader/Loader";
-import Entry from "./Entry";
+import Tile from "./Tile";
 
 import styles from "./Forecast.module.scss";
 
@@ -41,18 +41,21 @@ const Forecast = () => {
 
     return (
         <div className={styles.forecast}>
+            <h2>Forecast</h2>
+            <div className={styles.forecast__tiles}>
             {
                 forecast.list.map((part, index) => (
-                    <Entry
+                    <Tile
                         key={index}
-                        time={part.dt}
+                        datetime={part.dt}
                         temp={part.main.temp}
                         pressure={part.main.pressure}
                         humidity={part.main.humidity}
-                        weather={part.weather}
+                        weather={part.weather[0]}
                     />)
                 )
             }
+            </div>
         </div>
     )
 };
