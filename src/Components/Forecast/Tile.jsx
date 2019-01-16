@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Entry.module.scss';
+import styles from './Tile.module.scss';
 import Description from "../CurrentWeather/Description";
 import Icon from "../Icon/Icon";
 
@@ -18,11 +18,11 @@ const Tile = (props) => {
     const time = dateObj.toLocaleDateString();
 
     return (
-        <div className={styles.entry}>
-            <div className={styles.entry__time}>
+        <div className={styles.tile}>
+            <div className={styles.tile__time}>
                 <span>{date}</span> <span>{time}</span>
             </div>
-            <div className={styles.entry__basic}>
+            <div className={styles.tile__basic}>
                 <Icon icon={weather.icon} />
                 <Description description={weather.description}/>
             </div>

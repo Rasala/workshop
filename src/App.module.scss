@@ -1,5 +1,25 @@
 .app {
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(320px, 5fr);
+  grid-template-rows: 20px 1fr;
+  grid-template-areas:
+          " header header "
+          " aside content ";
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 20px;
+
+  &__header {
+    grid-area: header;
+  }
+
+  &__aside {
+    grid-area: aside;
+  }
+
+  &__content {
+    grid-area: content;
+  }
 }
 
 

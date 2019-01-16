@@ -10,9 +10,15 @@ import styles from './App.module.scss';
 const App = () => (
     <Provider store={store}>
         <div className={styles.app}>
-            <Header />
-            <CurrentWeather />
-            <Forecast />
+            <div className={styles.app__header}>
+                <Header />
+            </div>
+            <div className={styles.app__aside}>
+                <CurrentWeather />
+            </div>
+            <div className={styles.app__content}>
+                <Forecast />
+            </div>
         </div>
     </Provider>
 

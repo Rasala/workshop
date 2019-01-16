@@ -4,8 +4,7 @@ import {bindActionCreators} from "redux";
 import useRedux from "../../Hooks/redux";
 import Loader from "../Loader/Loader";
 
-const Header = lazy(() => import("./Header"));
-const Table = lazy(() => import("./Table"));
+const Basic = lazy(() => import("./Basic"));
 
 const mapStateToProps = store => ({
     current: store.weather.current,
@@ -42,8 +41,11 @@ const CurrentWeather = () => {
 
     return (
         <Suspense fallback={<Loader />}>
-            <Header city={current.name} country={current.sys.country} weather={current.weather[0]}/>
-            <Table />
+            <Basic
+                city={current.name}
+                country={current.sys.country}
+                weather={current.weather[0]}
+            />
         </Suspense>
 
     )
