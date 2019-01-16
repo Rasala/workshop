@@ -1,9 +1,11 @@
 import { all } from 'redux-saga/effects';
 import {watchWeatherSaga} from "../Containers/Weather/Weather.saga";
 import {fork} from "redux-saga/effects";
+import {watchLocationSaga} from "../Containers/Location/Location.saga";
 
 const sagas = [
-    watchWeatherSaga
+    watchLocationSaga,
+    watchWeatherSaga,
 ];
 
 export default function* root() {
