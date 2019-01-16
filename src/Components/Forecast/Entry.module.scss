@@ -1,0 +1,5 @@
+.entry {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr);
+  grid-template-rows: repeat(3, minmax(30px, 1fr));
+}
