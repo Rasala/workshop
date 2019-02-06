@@ -10,6 +10,7 @@
     "react-redux": "^5.1.0",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.5",
     "redux-saga": "^0.16.2"
   },
   "scripts": {
@@ -28,7 +29,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "jest": "^23.6.0",
-    "redux-devtools-extension": "^2.13.5"
+    "jest": "^23.6.0"
   }
 }
