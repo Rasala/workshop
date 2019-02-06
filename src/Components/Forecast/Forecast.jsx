@@ -1,5 +1,6 @@
 import React, {lazy, useEffect, Suspense} from 'react';
 import {bindActionCreators} from "redux";
+import { connect } from "react-redux";
 import {getWeatherForecast} from "../../Containers/Weather/Weather.action";
 import useRedux from "../../Hooks/redux";
 import Loader from "../Loader/Loader";
@@ -18,13 +19,13 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     getWeatherForecast
 }, dispatch);
 
-const Forecast = () => {
+const Forecast = (props) => {
     const {
         forecast,
         getForecastPending,
         getForecastError,
         getWeatherForecast
-    } = useRedux(mapStateToProps, mapDispatchToProps);
+    } = props;
 
     useEffect(() => {
         if(!forecast && !getForecastError){
@@ -63,4 +64,4 @@ const Forecast = () => {
     )
 };
 
-export default Forecast;
+export default connect(mapStateToProps, mapDispatchToProps)(Forecast);
