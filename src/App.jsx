@@ -13,12 +13,12 @@ const App = () => (
             <div className={styles.app__header}>
                 <Header />
             </div>
-            <div className={styles.app__aside}>
-                <CurrentWeather />
-            </div>
-            <div className={styles.app__content}>
-                <Forecast />
-            </div>
+            {/*<div className={styles.app__aside}>*/}
+                {/*<CurrentWeather />*/}
+            {/*</div>*/}
+            {/*<div className={styles.app__content}>*/}
+                {/*<Forecast />*/}
+            {/*</div>*/}
         </div>
     </Provider>
 
