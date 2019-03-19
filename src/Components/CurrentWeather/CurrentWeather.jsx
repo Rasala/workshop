@@ -3,6 +3,7 @@ import {getCurrentWeather} from "../../Containers/Weather/Weather.action";
 import {bindActionCreators} from "redux";
 import useRedux from "../../Hooks/redux";
 import Loader from "../Loader/Loader";
+import usePosition from "../../Hooks/position.hook";
 
 const Basic = lazy(() => import("./Basic"));
 
@@ -24,18 +25,23 @@ const CurrentWeather = () => {
         getCurrentWeather
     } = useRedux(mapStateToProps, mapDispatchToProps);
 
-    useEffect(() => {
-        if (!current && !getCurrentError) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                    getCurrentWeather({
-                        latitude: position.coords.latitude,
-                        longitude: position.coords.longitude,
-                    });
-            });
-        }
-    }, [current, getCurrentError]);
+    const [error, loading, position] = usePosition();
 
-    if (getCurrentPending) {
+    if (error) {
+        return <div>Cant load position</div>
+    }
+
+    if (getCurrentError) {
+        return <div>Cant load weather</div>
+    }
+
+    if (loading || getCurrentPending) {
+        return <Loader />;
+    }
+
+    if (!current && position) {
+        getCurrentWeather(position);
+
         return <Loader />;
     }
 

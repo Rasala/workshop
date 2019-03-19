@@ -12,7 +12,7 @@ const {
 
 const initState = {
     current: null,
-    getCurrentPending: true,
+    getCurrentPending: false,
     getCurrentError: null,
 
     forecast: null,

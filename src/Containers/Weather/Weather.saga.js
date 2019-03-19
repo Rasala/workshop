@@ -25,6 +25,7 @@ function* getCurrentWeather(action) {
 
 function* getWeatherForecast(action) {
     try {
+
         const weather = yield call(Service.getForecastByLocation, action.settings);
 
         yield put(getWeatherForecastSuccess(weather));

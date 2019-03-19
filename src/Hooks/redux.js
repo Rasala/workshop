@@ -14,16 +14,9 @@ export default function useRedux(mapStateToProps = emptyFunction, mapDispatchToP
     const [state, setState] = useState(stateToProps);
 
     useEffect(() => store.subscribe(() => {
-        console.log(`Running subscribe`);
-
         const newStateToProps = mapStateToProps(store.getState());
 
-        console.log('newStateToProps', newStateToProps);
-        console.log('stateToProps', stateToProps);
-
         if (!shallowCompare(newStateToProps, stateToProps)) {
-            console.log('setState');
-
             setState(newStateToProps);
         }
     }));
